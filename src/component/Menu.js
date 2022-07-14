@@ -30,8 +30,8 @@ const Menu = ({ setLineColor, setLineWidth,
               setLineOpacity(e.target.value / 100);
             }}
           />
-           <button className='download' onClick={download}>Download</button>
-           <button className='clear' onClick={clear}>Clear</button>
+           <button className=' bg-white px-1 text-green-500' onClick={download}>Download</button>
+           <button className=' bg-white px-1 text-red-500' onClick={clear}>Clear</button>
         </div>
       );
 };

@@ -8,8 +8,8 @@ const Paint = () => {
   const [lineWidth, setLineWidth] = useState(5);
   const [lineColor, setLineColor] = useState("black");
   const [lineOpacity, setLineOpacity] = useState(0.1);
+
   
-  // Initialization when the component
   // mounts for the first time
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,7 +21,7 @@ const Paint = () => {
     ctx.lineWidth = lineWidth;
     ctxRef.current = ctx;
   }, [lineColor, lineOpacity, lineWidth]);
-  // download 
+  // Function for download paint
   const download = async () => {
     const image = canvasRef.current.toDataURL('image/png');
     const blob = await (await fetch(image)).blob();
@@ -40,7 +40,7 @@ const Paint = () => {
     );
     setIsDrawing(true);
   };
-  // clear paint 
+  // Function for clear paint 
   const clear = () => {
     ctxRef.current.clearRect(0, 0, ctxRef.current.canvas.width, ctxRef.current.canvas.height)
   }
@@ -49,7 +49,7 @@ const Paint = () => {
     ctxRef.current.closePath();
     setIsDrawing(false);
   };
-  
+  // Function for drow 
   const draw = (e) => {
     if (!isDrawing) {
       return;
