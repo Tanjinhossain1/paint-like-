@@ -1,6 +1,7 @@
 import React from 'react';
 import auth from '../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [user] = useAuthState(auth)
@@ -14,7 +15,7 @@ const Home = () => {
                         <p class="mb-5">Paint what you want.</p>
                         <p>There you can paint anything when you login then you can paint hear so first to login then you go paint </p>
                        {
-                        user? <button class="btn btn-primary hover:bg-pink-700 duration-700 ease-in">Paint</button>: <button class="hover:bg-pink-700 duration-700 ease-in btn btn-primary">Login / Paint</button>
+                        user? <Link to='/paint'><button class="btn btn-primary hover:bg-pink-700 duration-700 ease-in">Paint</button></Link> : <Link to='/login'><button class="hover:bg-pink-700 duration-700 ease-in btn btn-primary">Login / Paint</button></Link>
                        }
                     </div>
                 </div>
